@@ -13,6 +13,13 @@ public class EmailController {
     @Autowired
     private EmailService emailService;
 
+    /**
+     * Send email passed by parameter.
+     *
+     * @param content Email content.
+     * @param email Root.
+     * @param subject Email subject.
+     */
     @RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
     public void sendEmail(@RequestParam("content") String content, @RequestParam("email") String email, @RequestParam("subject") String subject) {
         emailService.send(content, email, subject);
